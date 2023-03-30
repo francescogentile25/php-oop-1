@@ -23,6 +23,7 @@ class Movie
     public $year;
     public $director;
     public $raiting;
+    public static $type = ['fanasy', 'horror', 'crime'];
 
     function __construct($_title, $_year, $_director, $_raiting)
     {
@@ -44,7 +45,9 @@ class Movie
     }
 }
 
-$film1 = new Movie('il sigonore degli anelli', 2002, 'Peter Jackson', 10);
-$film2 = new Movie('Star Wars', 1977, 'George Lucas', 10);
+$film1 = new Movie('il sigonore degli anelli', 2002, 'Peter Jackson', 10, 'fantasy');
+$film1->type = Movie::$type[1];
+$film2 = new Movie('Star Wars', 1977, 'George Lucas', 10, 'fantasy');
+$film2->type = Movie::$type[2];
 var_dump($film1, $film2);
 ?>
