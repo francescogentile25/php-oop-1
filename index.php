@@ -17,37 +17,12 @@
 </html>
 
 <?php
-class Movie
-{
-    public $title;
-    public $year;
-    public $director;
-    public $raiting;
-    public static $type = ['fanasy', 'horror', 'crime'];
-
-    function __construct($_title, $_year, $_director, $_raiting)
-    {
-        $this->title = $_title;
-        $this->year = $_year;
-        $this->director = $_director;
-        $this->raiting = $_raiting;
-    }
-
-    function getRaiting()
-    {
-
-        if (!isset($this->raiting)) {
-            return "Valutazione mancante";
-        }
-
-
-        return $this->raiting;
-    }
-}
+require_once "./models/Movie.php";
+$type = ['fanasy', 'horror', 'crime'];
 
 $film1 = new Movie('il sigonore degli anelli', 2002, 'Peter Jackson', 10, 'fantasy');
-$film1->type = Movie::$type[1];
+$film1->genere = $type[1];
 $film2 = new Movie('Star Wars', 1977, 'George Lucas', 10, 'fantasy');
-$film2->type = Movie::$type[2];
+$film2->genere = $type[2];
 var_dump($film1, $film2);
 ?>
